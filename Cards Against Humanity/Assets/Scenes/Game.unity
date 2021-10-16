@@ -5336,10 +5336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58db9e3c508e90347b102fa7dfe13049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfPlayers: 4
+  numOfPlayers: 1
   selected:
   - {fileID: 0}
-  buttons:
+  playerCards:
   - {fileID: 1617870089}
   - {fileID: 445696049}
   - {fileID: 1690098561}

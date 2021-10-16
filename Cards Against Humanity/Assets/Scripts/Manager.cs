@@ -10,7 +10,7 @@ public class Manager : MonoBehaviour
 {
     public int numOfPlayers;
     public Button[] selected = new Button[1];
-    public Button[] buttons = new Button[10];
+    public Button[] playerCards = new Button[10];
     public Button[] placed;
     public Button[] card_slots = new Button[6];
     private int delete;
@@ -19,19 +19,19 @@ public class Manager : MonoBehaviour
     public void Start(){
         placed = new Button[numOfPlayers];
 
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < playerCards.Length; i++)
         {
-            buttons[i].GetComponentInChildren<TMP_Text>().text = UnityEngine.Random.Range(0, 10).ToString(); // Randomises the text of the player cards to a number between 0 and 10.
+            playerCards[i].GetComponentInChildren<TMP_Text>().text = UnityEngine.Random.Range(0, 10).ToString(); // Randomises the text of the player cards to a number between 0 and 10.
         }
     }
 
     public void checkPressed()
     {
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < playerCards.Length; i++)
         {
-            if (buttons[i].GetComponent<GameButtonsManager>().pressed)
+            if (playerCards[i].GetComponent<GameButtonsManager>().pressed)
             {
-                selected[0] = buttons[i];
+                selected[0] = playerCards[i];
                 break;
             }
         }
@@ -51,9 +51,47 @@ public class Manager : MonoBehaviour
     }
 
     public void showCards(){ //write the text onto all the cards that were placed down (effectively turning them over if it was irl)
-        for (int i=  0; i < placed.Length; i ++){
-            card_slots[i].GetComponentInChildren<TMP_Text>().text = placed[i].GetComponentInChildren<TMP_Text>().text;
+        for (int i = 0; i < placed.Length; i ++){
+            card_slots[i].GetComponentInChildren<TMP_Text>().text = placed[i].GetComponentInChildren<TMP_Text>().text; //Move text from selected card to card slot next to prompt card
+            for (int x = 0; i < playerCards.Length; x++){ //Loop through all player cards
+                if (playerCards[x].name == placed[i].name){ //If the card has been placed down, remove the text from it (and replace it with some new text later on)
+                    playerCards[x].GetComponentInChildren<TMP_Text>().text = "";
+                    break;
+                }
+            }
             placed[i].interactable = true;
+        }
+        reshuffleCards();
+        addNewCards();
+    }
+
+    public void reshuffleCards(){ //Get rid of the empty spaces in the player cards by shifting the cards down if there's space
+        for (int i = 0; i < playerCards.Length; i++)
+        {
+            if (playerCards[i].GetComponentInChildren<TMP_Text>().text == "")
+            {
+                for (int x = i; x < playerCards.Length; x++)
+                {
+                    if (playerCards[x].GetComponentInChildren<TMP_Text>().text != "")
+                    {
+                        playerCards[i].GetComponentInChildren<TMP_Text>().text = playerCards[x].GetComponentInChildren<TMP_Text>().text;
+                        playerCards[x].GetComponentInChildren<TMP_Text>().text = "";
+                        break;
+                    }
+                }
+
+            }
+        }
+    }
+
+    public void addNewCards(){
+        for (int i = playerCards.Length-1; i > 0; i--){
+            if (playerCards[i].GetComponentInChildren<TMP_Text>().text == ""){
+                playerCards[i].GetComponentInChildren<TMP_Text>().text = UnityEngine.Random.Range(0, 10).ToString();
+            }
+            else{
+                break;
+            }
         }
     }
 

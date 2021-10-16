@@ -26,7 +26,7 @@ public class GameButtonsManager : MonoBehaviour
 
     }
 
-    /*public bool isInArrayList(ArrayList arr, string name)
+    /*public bool isInArrayList(ArrayLis    t arr, string name)
     {
         for (int i = 0; i < arr.Count; i++)
         {
