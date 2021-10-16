@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayerCardManager : MonoBehaviour
+public class GameButtonsManager : MonoBehaviour
 {
     public GameObject manager;
     public Button self;
     public bool pressed;
     public Button[] selected;
+
 
     private ArrayList buttons = new ArrayList();
 
@@ -17,7 +18,7 @@ public class PlayerCardManager : MonoBehaviour
     public void BtnOnClick()
     {
         pressed = true;
-        
+
     }
 
     public void Update()

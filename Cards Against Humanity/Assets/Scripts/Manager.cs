@@ -7,13 +7,13 @@ public class Manager : MonoBehaviour
 {
     public Button[] selected = new Button[1];
     public Button[] buttons = new Button[10];
-    
+
 
     public void checkPressed()
     {
         for (int i = 0; i < buttons.Length; i++)
         {
-            if (buttons[i].GetComponent<PlayerCardManager>().pressed)
+            if (buttons[i].GetComponent<GameButtonsManager>().pressed)
             {
                 selected[0] = buttons[i];
                 break;
@@ -29,7 +29,7 @@ public class Manager : MonoBehaviour
 
     public void Update()
     {
-        
+
 
     }
 
