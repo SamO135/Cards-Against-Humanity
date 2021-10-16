@@ -21,7 +21,7 @@ public class Manager : MonoBehaviour
 
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].GetComponentInChildren<TMP_Text>().text = UnityEngine.Random.Range(0, 10).ToString();
+            buttons[i].GetComponentInChildren<TMP_Text>().text = UnityEngine.Random.Range(0, 10).ToString(); // Randomises the text of the player cards to a number between 0 and 10.
         }
     }
 
@@ -40,18 +40,18 @@ public class Manager : MonoBehaviour
     public void checkConfirmed()
     {
         for (int i = 0; i < placed.Length; i++){
-            if ((placed[i] == null) && !placed.Contains(selected[0]))
+            if ((placed[i] == null) && !placed.Contains(selected[0])) //If more cards and be placed and the current card has not already been placed.
             {
                 placed[i] = selected[0];
                 selected[0].interactable = false;
+                card_slots[i].GetComponent<Image>().color = Color.white; // Place card next to the prompt card, but don't show the text until all cards are placed.
                 break;
             }
         }
     }
 
-    public void placeCards(){
+    public void showCards(){ //write the text onto all the cards that were placed down (effectively turning them over if it was irl)
         for (int i=  0; i < placed.Length; i ++){
-            card_slots[i].GetComponent<Image>().color = Color.white;
             card_slots[i].GetComponentInChildren<TMP_Text>().text = placed[i].GetComponentInChildren<TMP_Text>().text;
             placed[i].interactable = true;
         }
@@ -60,8 +60,8 @@ public class Manager : MonoBehaviour
 
     public void Update()
     {
-        if (placed[placed.Length - 1] != null){
-            placeCards();
+        if (placed[placed.Length - 1] != null){ //If placed array is full (when all players have selected a card to play).
+            showCards();
             Array.Clear(placed, 0, placed.Length);
         }
 

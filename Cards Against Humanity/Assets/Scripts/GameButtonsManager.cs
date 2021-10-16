@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class GameButtonsManager : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class GameButtonsManager : MonoBehaviour
     public void BtnOnClick()
     {
         pressed = true;
-
     }
 
     public void Update()
