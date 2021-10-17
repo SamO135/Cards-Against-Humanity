@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 33970619}
   m_Layer: 5
   m_Name: CardSlot (4)
-  m_TagString: Untagged
+  m_TagString: Card Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 33970620}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &33970620
 MonoBehaviour:
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 72199532}
   m_Layer: 5
   m_Name: PlayerCard (6)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 72199533}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &72199533
 MonoBehaviour:
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 116115849}
   m_Layer: 5
   m_Name: CardSlot (5)
-  m_TagString: Untagged
+  m_TagString: Card Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 116115850}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &116115850
 MonoBehaviour:
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 229382002}
   m_Layer: 5
   m_Name: PlayerCard (8)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -931,7 +931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 229382003}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &229382003
 MonoBehaviour:
@@ -1526,7 +1526,7 @@ GameObject:
   - component: {fileID: 445696048}
   m_Layer: 5
   m_Name: PlayerCard (1)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 445696049}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &445696049
 MonoBehaviour:
@@ -1688,7 +1688,7 @@ GameObject:
   - component: {fileID: 455157934}
   m_Layer: 5
   m_Name: PlayerCard (3)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 455157935}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &455157935
 MonoBehaviour:
@@ -2244,7 +2244,7 @@ GameObject:
   - component: {fileID: 751514765}
   m_Layer: 5
   m_Name: PlayerCard (9)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2283,7 +2283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 751514766}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &751514766
 MonoBehaviour:
@@ -2406,7 +2406,7 @@ GameObject:
   - component: {fileID: 792218436}
   m_Layer: 5
   m_Name: PlayerCard (5)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2445,7 +2445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 792218437}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &792218437
 MonoBehaviour:
@@ -2568,7 +2568,7 @@ GameObject:
   - component: {fileID: 799003254}
   m_Layer: 5
   m_Name: CardSlot (1)
-  m_TagString: Untagged
+  m_TagString: Card Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2607,7 +2607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 799003255}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &799003255
 MonoBehaviour:
@@ -2730,7 +2730,7 @@ GameObject:
   - component: {fileID: 803706184}
   m_Layer: 5
   m_Name: PlayerCard (4)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2769,7 +2769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 803706185}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &803706185
 MonoBehaviour:
@@ -2892,7 +2892,7 @@ GameObject:
   - component: {fileID: 905764522}
   m_Layer: 5
   m_Name: CardSlot (3)
-  m_TagString: Untagged
+  m_TagString: Card Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2931,7 +2931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 905764523}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &905764523
 MonoBehaviour:
@@ -3988,7 +3988,7 @@ GameObject:
   - component: {fileID: 1405387466}
   m_Layer: 5
   m_Name: CardSlot
-  m_TagString: Untagged
+  m_TagString: Card Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4027,7 +4027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 1405387467}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &1405387467
 MonoBehaviour:
@@ -4189,7 +4189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 1582411342}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &1582411342
 MonoBehaviour:
@@ -4300,7 +4300,7 @@ GameObject:
   - component: {fileID: 1597535605}
   m_Layer: 5
   m_Name: PlayerCard (7)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4339,7 +4339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 1597535606}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &1597535606
 MonoBehaviour:
@@ -4462,7 +4462,7 @@ GameObject:
   - component: {fileID: 1617870088}
   m_Layer: 5
   m_Name: PlayerCard
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4501,7 +4501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 1617870089}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &1617870089
 MonoBehaviour:
@@ -4624,7 +4624,7 @@ GameObject:
   - component: {fileID: 1636964117}
   m_Layer: 5
   m_Name: CardSlot (2)
-  m_TagString: Untagged
+  m_TagString: Card Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4663,7 +4663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 1636964118}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &1636964118
 MonoBehaviour:
@@ -4786,7 +4786,7 @@ GameObject:
   - component: {fileID: 1690098560}
   m_Layer: 5
   m_Name: PlayerCard (2)
-  m_TagString: Untagged
+  m_TagString: Player Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4825,7 +4825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1832123921}
   self: {fileID: 1690098561}
-  pressed: 0
+  isPressed: 0
   selected: []
 --- !u!114 &1690098561
 MonoBehaviour:
@@ -5336,7 +5336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58db9e3c508e90347b102fa7dfe13049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfPlayers: 1
+  numOfPlayers: 3
   selected:
   - {fileID: 0}
   playerCards:
@@ -5656,7 +5656,7 @@ GameObject:
   - component: {fileID: 2082916333}
   m_Layer: 5
   m_Name: PromptCard
-  m_TagString: Untagged
+  m_TagString: Prompt Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

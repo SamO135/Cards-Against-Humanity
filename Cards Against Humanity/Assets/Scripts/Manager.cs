@@ -13,7 +13,7 @@ public class Manager : MonoBehaviour
     public Button[] playerCards = new Button[10];
     public Button[] placed;
     public Button[] card_slots = new Button[6];
-    private int delete;
+    private String phase = "submitting";
     
 
     public void Start(){
@@ -27,25 +27,43 @@ public class Manager : MonoBehaviour
 
     public void checkPressed()
     {
-        for (int i = 0; i < playerCards.Length; i++)
-        {
-            if (playerCards[i].GetComponent<GameButtonsManager>().pressed)
-            {
-                selected[0] = playerCards[i];
-                break;
+        if (phase == "submitting"){
+            for (int i = 0; i < playerCards.Length; i++){
+                if (playerCards[i].GetComponent<GameButtonsManager>().isPressed){
+                    selected[0] = playerCards[i];
+                    break;
+                }
+            }      
+        }
+        else if (phase == "selecting"){
+            for (int i = 0; i < card_slots.Length; i++){
+                if (card_slots[i].GetComponent<GameButtonsManager>().isPressed){
+                    selected[0] = card_slots[i];
+                    break;
+                }
             }
         }
+        
     }
 
     public void checkConfirmed()
     {
-        for (int i = 0; i < placed.Length; i++){
-            if ((placed[i] == null) && !placed.Contains(selected[0])) //If more cards and be placed and the current card has not already been placed.
-            {
-                placed[i] = selected[0];
-                selected[0].interactable = false;
-                card_slots[i].GetComponent<Image>().color = Color.white; // Place card next to the prompt card, but don't show the text until all cards are placed.
-                break;
+        if (phase == "submitting"){
+            for (int i = 0; i < placed.Length; i++){
+                if ((placed[i] == null) && !placed.Contains(selected[0])){ //If more cards can be placed and the current card has not already been placed.{
+                    placed[i] = selected[0];
+                    selected[0].interactable = false;
+                    card_slots[i].GetComponent<Image>().color = Color.white; // Place card next to the prompt card, but don't show the text until all cards are placed.
+                    break;
+                }
+            }
+        }
+        else if (phase == "selecting"){
+            for (int i = 0; i < card_slots.Length; i++){
+                if (selected[0] == card_slots[i]){
+                    Debug.Log("The winner was: " + card_slots[i].GetComponentInChildren<TMP_Text>().text);
+                    makePhaseOne();
+                }
             }
         }
     }
@@ -61,8 +79,6 @@ public class Manager : MonoBehaviour
             }
             placed[i].interactable = true;
         }
-        reshuffleCards();
-        addNewCards();
     }
 
     public void reshuffleCards(){ //Get rid of the empty spaces in the player cards by shifting the cards down if there's space
@@ -95,11 +111,60 @@ public class Manager : MonoBehaviour
         }
     }
 
+    public void makePhaseTwo(){
+        changePlayerCardColour(new Color(1, 1, 1, 0.5f));
+        for (int i = 0; i < card_slots.Length; i++){
+            if (card_slots[i].GetComponentInChildren<TMP_Text>().text != ""){
+                card_slots[i].interactable = true;
+                Array.Clear(selected, 0, selected.Length);
+            }
+            else{
+                break;
+            }
+        }
+        phase = "selecting";
+    }
+
+    public void makePhaseOne(){
+        changePlayerCardColour(new Color(1, 1, 1, 1));
+        for (int i = 0; i < playerCards.Length; i++){
+            playerCards[i].interactable = true;
+        }
+        for (int i = 0; i < card_slots.Length; i++){
+            card_slots[i].interactable = false;
+            card_slots[i].GetComponent<Image>().color = new Color(0.3372549f, 0.3372549f, 0.3372549f, 1);
+            card_slots[i].GetComponentInChildren<TMP_Text>().text = "";
+        }
+        phase = "submitting";
+    }
+
+    public void changePlayerCardColour(Color newColour){
+        for (int i = 0; i < playerCards.Length; i++){
+            playerCards[i].interactable = false;
+            var newColorBlock = playerCards[i].GetComponent<Button>().colors;
+            newColorBlock.disabledColor = newColour;
+            playerCards[i].GetComponent<Button>().colors = newColorBlock;
+        }
+    }
+
+    public void pickRoundWinner(){
+        for (int i = 0; i < card_slots.Length; i++){
+            if (card_slots[i].GetComponent<GameButtonsManager>().isPressed){
+                selected[0] = card_slots[i];
+                break;
+            }
+        }
+    }
+
+
 
     public void Update()
     {
         if (placed[placed.Length - 1] != null){ //If placed array is full (when all players have selected a card to play).
             showCards();
+            reshuffleCards();
+            addNewCards();
+            makePhaseTwo();
             Array.Clear(placed, 0, placed.Length);
         }
 

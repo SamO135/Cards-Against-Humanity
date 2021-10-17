@@ -7,7 +7,7 @@ public class GameButtonsManager : MonoBehaviour
 {
     public GameObject manager;
     public Button self;
-    public bool pressed;
+    public bool isPressed;
     public Button[] selected;
 
 
@@ -16,14 +16,13 @@ public class GameButtonsManager : MonoBehaviour
 
     public void BtnOnClick()
     {
-        pressed = true;
+        isPressed = true;
     }
 
     public void Update()
     {
-        selected = manager.GetComponent<Manager>().selected;
-        pressed = false;
-
+        //selected = manager.GetComponent<Manager>().selected;
+        isPressed = false;
     }
 
     /*public bool isInArrayList(ArrayLis    t arr, string name)
