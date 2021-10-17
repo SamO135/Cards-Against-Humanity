@@ -126,7 +126,7 @@ public class Manager : MonoBehaviour
     }
 
     public void makePhaseOne(){
-        changePlayerCardColour(new Color(1, 1, 1, 1));
+        changePlayerCardColour(new Color(0.2235294f, 0.6431373f, 0.8666667f, 1));
         for (int i = 0; i < playerCards.Length; i++){
             playerCards[i].interactable = true;
         }
@@ -135,6 +135,7 @@ public class Manager : MonoBehaviour
             card_slots[i].GetComponent<Image>().color = new Color(0.3372549f, 0.3372549f, 0.3372549f, 1);
             card_slots[i].GetComponentInChildren<TMP_Text>().text = "";
         }
+        Array.Clear(selected, 0, selected.Length);
         phase = "submitting";
     }
 
