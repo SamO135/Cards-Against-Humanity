@@ -13,20 +13,28 @@ public class Manager : MonoBehaviour
     public Button[] playerCards = new Button[10];
     public Button[] placed;
     public Button[] card_slots = new Button[6];
+    private GameObject[] temp = new GameObject[6];
     private String phase = "submitting";
     
 
     public void Start(){
         placed = new Button[numOfPlayers];
+        temp = GameObject.FindGameObjectsWithTag("Card Slot");
+        for (int i = 0; i < temp.GetLength(0); i ++){
+            card_slots[i] = temp[i].GetComponent<Button>();
+            //Debug.Log(temp[i].name);
+        }
 
         for (int i = 0; i < playerCards.Length; i++)
         {
             playerCards[i].GetComponentInChildren<TMP_Text>().text = UnityEngine.Random.Range(0, 10).ToString(); // Randomises the text of the player cards to a number between 0 and 10.
         }
+        
     }
 
     public void checkPressed()
     {
+        Debug.Log(phase);
         if (phase == "submitting"){
             for (int i = 0; i < playerCards.Length; i++){
                 if (playerCards[i].GetComponent<GameButtonsManager>().isPressed){
