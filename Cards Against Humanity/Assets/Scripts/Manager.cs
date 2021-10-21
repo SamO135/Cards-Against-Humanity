@@ -20,7 +20,7 @@ public class Manager : MonoBehaviour
     public void Start(){
         placed = new Button[numOfPlayers];
         temp = GameObject.FindGameObjectsWithTag("Card Slot");
-        for (int i = 0; i < temp.GetLength(0); i ++){
+        for (int i = 0; i < temp.Length; i ++){
             card_slots[i] = temp[i].GetComponent<Button>();
             //Debug.Log(temp[i].name);
         }
@@ -32,9 +32,9 @@ public class Manager : MonoBehaviour
         
     }
 
-    public void checkPressed()
+    public void checkPressed(String phase)
     {
-        Debug.Log(phase);
+        //Debug.Log(phase);
         if (phase == "submitting"){
             for (int i = 0; i < playerCards.Length; i++){
                 if (playerCards[i].GetComponent<GameButtonsManager>().isPressed){
@@ -45,17 +45,29 @@ public class Manager : MonoBehaviour
         }
         else if (phase == "selecting"){
             for (int i = 0; i < card_slots.Length; i++){
+                //Debug.Log(card_slots[i]);
                 if (card_slots[i].GetComponent<GameButtonsManager>().isPressed){
                     selected[0] = card_slots[i];
                     break;
                 }
             }
-        }
-        
+        } 
+    }
+
+    public void checkPressed()  //Overloaded method for use in the 'SpawnCards' script when instantiating the card slots. The 'checkPressed' method needed to be
+    {                           //added to the 'On Click ()' part of the 'Button' component during runtime and the solution I found required a method with no parameters.
+        for (int i = 0; i < card_slots.Length; i++){
+            //Debug.Log(card_slots[i]);
+            if (card_slots[i].GetComponent<GameButtonsManager>().isPressed){
+                selected[0] = card_slots[i];
+                break;
+            }
+        } 
     }
 
     public void checkConfirmed()
     {
+        //Debug.Log(phase);
         if (phase == "submitting"){
             for (int i = 0; i < placed.Length; i++){
                 if ((placed[i] == null) && !placed.Contains(selected[0])){ //If more cards can be placed and the current card has not already been placed.{
@@ -131,6 +143,7 @@ public class Manager : MonoBehaviour
             }
         }
         phase = "selecting";
+        //Debug.Log(phase);
     }
 
     public void makePhaseOne(){
@@ -162,6 +175,12 @@ public class Manager : MonoBehaviour
                 selected[0] = card_slots[i];
                 break;
             }
+        }
+    }
+
+    public void printCardSlots(){
+        foreach (Button card in card_slots){
+            Debug.Log(card.name);
         }
     }
 
